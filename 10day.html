@@ -1,0 +1,263 @@
+<!-- filepath: /text01.github.io/text01.github.io/10day.html -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新疆10天深度游 | 西域探险之旅</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+        }
+        
+        :root {
+            --primary: #e74c3c;
+            --secondary: #3498db;
+            --accent: #f39c12;
+            --dark: #2c3e50;
+            --light: #ffffff;
+            --text: #34495e;
+            --border: #ecf0f1;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --radius: 12px;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            color: var(--text);
+            line-height: 1.7;
+            padding-bottom: 40px;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                         url('https://images.unsplash.com/photo-1598974357801-cbca100e65d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 70px 0 50px;
+            text-align: center;
+            position: relative;
+            margin-bottom: 40px;
+            border-radius: 0 0 var(--radius) var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .meeting-info {
+            background: linear-gradient(to right, var(--dark), var(--primary));
+            color: white;
+            padding: 12px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        .route-map {
+            margin: 50px 0;
+            position: relative;
+            padding: 35px 30px;
+            background: var(--light);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            overflow: hidden;
+        }
+
+        .route-title {
+            text-align: center;
+            font-size: 2.3rem;
+            color: var(--primary);
+            margin-bottom: 40px;
+            position: relative;
+            font-weight: 750;
+        }
+
+        .route-container {
+            display: flex;
+            overflow-x: auto;
+            padding: 20px 0;
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary) var(--border);
+            -ms-overflow-style: none;
+        }
+
+        .route-point {
+            flex: 1;
+            position: relative;
+            z-index: 2;
+            padding-top: 20px;
+            min-width: 140px;
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+
+        .day-cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(550px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .day-card {
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            border-left: 5px solid var(--primary);
+            transition: all 0.4s ease;
+            margin-bottom: 20px;
+        }
+
+        .day-summary {
+            padding: 22px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(to right, #f8f9fa, #e9ecef);
+            transition: all 0.3s ease;
+        }
+
+        .day-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            flex-shrink: 0;
+            margin-right: 20px;
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.25);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 70px;
+            padding: 25px 0;
+            color: #777;
+            font-size: 1rem;
+            border-top: 1px solid var(--border);
+        }
+    </style>
+</head>
+<body>
+    <div class="meeting-info">
+        <div class="highlight">
+            <i class="fas fa-map-marker-alt"></i>
+            集合地点：东莞市长安图书馆
+        </div>
+        <div class="highlight">
+            <i class="fas fa-clock"></i>
+            集合时间：2025年6月9日 早上7:50
+        </div>
+        <div class="live-time" id="liveTime">
+            <i class="fas fa-sync-alt"></i>
+            当前时间：2025年6月7日 星期六 10:30:15
+        </div>
+    </div>
+    
+    <div class="container">
+        <header>
+            <div class="title-container">
+                <h1>
+                    <span class="title-icon">⛰️</span>
+                    新疆10天深度游
+                    <span class="title-icon">🐫</span>
+                </h1>
+                <div class="subtitle">开启10天9晚全景之旅，体验独特的民族文化和自然风光</div>
+            </div>
+        </header>
+        
+        <h2 class="route-title">全景路线图</h2>
+        <div class="route-map">
+            <div class="route-container">
+                <div class="route-point">
+                    <div class="point-dot">🚩</div>
+                    <div class="point-label">东莞</div>
+                    <div class="point-meta">
+                        <span>第1天</span>
+                        <div class="point-transport">
+                            <i class="fas fa-plane"></i> 飞行6小时
+                        </div>
+                        <span>🌡️ 25-30℃</span>
+                    </div>
+                </div>
+                <!-- More route points can be added here -->
+            </div>
+        </div>
+
+        <h2 class="section-title">每日行程安排</h2>
+        <div class="day-cards-container">
+            <div class="day-card">
+                <div class="day-summary">
+                    <div class="day-number">1</div>
+                    <div class="day-title-container">
+                        <h3 class="day-title">东莞 → 乌鲁木齐</h3>
+                        <div class="route-info">
+                            <div class="route-info-item">
+                                <i class="fas fa-plane"></i>
+                                <span>飞机约6小时</span>
+                            </div>
+                            <div class="route-info-item">
+                                <i class="fas fa-road"></i>
+                                <span>2500公里</span>
+                            </div>
+                        </div>
+                    </div>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="day-details">
+                    <div class="day-details-header">
+                        <h4><i class="fas fa-sun"></i> 乌鲁木齐</h4>
+                        <div class="weather-info">
+                            <i class="fas fa-cloud-sun"></i>
+                            <span>多云，21-34℃</span>
+                        </div>
+                    </div>
+                    <div class="day-details-content">
+                        <div class="scenic-description">
+                            <div class="scenic-point">
+                                <div class="scenic-icon">
+                                    <i class="fas fa-city"></i>
+                                </div>
+                                <div class="scenic-text">
+                                    <h4>市区观光</h4>
+                                    <p>抵达乌鲁木齐后，入住酒店稍作休息，自由活动</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- More day cards can be added here -->
+        </div>
+    </div>
+    <div class="footer">
+        © 2025 新疆10天深度游. 版权所有.
+    </div>
+</body>
+</html>
